@@ -1,0 +1,87 @@
+---
+title: "Surpassing the R vs Python dogma"
+author: "Dana Jomar, Clemens Zauchner"
+date: "May 2019"
+output: 
+  ioslides_presentation:
+    toc: true
+    df_print: null
+    theme: null
+    css: style.css
+    widescreen: true
+    keep_md: true
+    #smaller: true  ## only works without "---" slide breaks (use ##)
+    slide_level: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      eval = TRUE,
+                      results = 'asis')
+```
+
+## Contents
+
+- Background?
+- Feather
+- Ursa / Apache Arrow
+- Rstudio 1.2 / reticulated python
+
+## Why?
+
+- A lot of data science teams use both
+- both languages have rich interfaces to C++
+- most of under-the-hood coding is done in C++
+
+## Feather
+
+## Ursa Labs
+
+## Apache Arrow
+
+## Rstudio 1.2 / reticulated python
+
+- A package that makes it possible to embed a Python session within an R process.
+- Provides wrapper functions to use python modules and scripts
+  + import, python_source, repl_python, use_python, py_install, …… 
+- Data conversion back and forth between the two languages happens through C++.
+- R and Python variables are accessible from both environments.
+  + The objects  py and r provide this access.
+  
+## Type conversion
+
+```{r}
+r <- c('Single-element vector','Multi-element vector','List of multiple types',
+       'Named list','Matrix/Array','Data Frame','Function','NULL, TRUE, FALSE')
+
+py <- c('Scalar','List','Tuple','Dict','NumPy ndarray','Pandas DataFrame',
+        'Python function','None, True, False')
+
+ex <- c('1, 1L, TRUE, "foo"','c(1.0, 2.0, 3.0), c(1L, 2L, 3L)','list(1L, TRUE, "foo")',
+        'list(a = 1L, b = 2.0), dict(x = x_data)','matrix(c(1,2,3,4), nrow = 2, ncol = 2)',
+        'data.frame(x = c(1,2,3), y = c("a", "b", "c"))','function(x) x + 1','NULL, TRUE, FALSE')
+
+source <- 'https://rstudio.github.io/reticulate/'
+  
+  
+
+library(tableHTML)
+
+data.frame(R = r,
+           Python = py,
+           Examples = ex) %>% 
+  tableHTML(rownames = FALSE,
+            widths = c(200, 200, 300),
+            footer = paste0("source: ", source)) %>% 
+  tableHTML_to_image(zoom = 2)
+
+```
+
+
+## test
+
+```{r}
+grid::grid.raster(png::readPNG('python-logo-master-v3-TM.png'))
+```
+
+
