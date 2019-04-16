@@ -18,6 +18,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE,
                       eval = TRUE,
                       results = 'asis')
+knitr::knit_engines$set(python=reticulate::eng_python)
 ```
 
 ## Contents
@@ -35,26 +36,65 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ## Feather
 
-## Ursa Labs
+## Apache Arrow
+A standarised representation of tabular data (columnar data) in the RAM
+
+- Exchange data without conversion between the different languages including python and R (also C, C++, C#, Go, Java, JavaScript, MATLAB, Ruby, and Rust.)
+- Zero-copy dataflow
+- Optimised for analysing purposes 
+- Flat and nested format
+- More native data types than python ---> and everything is nullable
 
 ## Apache Arrow
 
-## Rstudio 1.2 / reticulated python
+```{r}
+library(tableHTML)
+header_img <- c('<img src="https://arrow.apache.org/img/copy.png" width="450" height="400"></img>', 
+                '<img src="https://arrow.apache.org/img/shared.png" width="450" height="400"></img>')
+tibble::tibble(before = c('<ul> <li> Each system has its own internal memory format', 
+                          '<ul> <li> 70-80% computation wasted on serialization and deserialization',
+                          '<ul> <li> Similar functionaltiy implemented in multiple projects', 
+                          ''), 
+               after= c('<ul> <li>All systems utilize the same memory format',
+                        '<ul> <li>No overhead for cross-system communication',
+                        '<ul> <li>Projects can share functionality', 
+                        '')) %>% 
+  `names<-`(header_img) %>% 
+  tableHTML(rownames=FALSE, escape = FALSE, footer = "source: arrow.apache.org") %>% 
+  add_css_row(css=list('border', '1px solid transparent')) %>% 
+  add_css_header(css=list('border', '1px solid transparent'), headers = 1:2) %>% 
+  add_css_column(css=list('border', '1px solid transparent'), columns = 1:2)
+```
 
-- A package that makes it possible to embed a Python session within an R process.
+## Ursa Labs
+
+## Rstudio 1.2 / reticulated python
+### The package: reticulate
+- Reticulate is an R package that makes it possible to embed a Python session within an R process.
 - Provides wrapper functions to use python modules and scripts
-  + import, python_source, repl_python, use_python, py_install, …… 
+    + import, python_source, repl_python, use_python, py_install, …… 
 - Data conversion back and forth between the two languages happens through C++.
 - R and Python variables are accessible from both environments.
-  + The objects  py and r provide this access.
-  
+    + The objects  py and r provide this access.
+
+## Rstudio 1.2 / reticulated python
+### The IDE: Rstudio 1.2
+- Automatic access to a python REPL when stepping in a python script.
+- Line-by-line execution of Python code.
+- Support for Python syntax highlighting. 
+- Autocompletion and Inline help for Python ...... HOOORAY!!!  
+- R notebooks with Python code chunks.
+- Automatic switch in the code history pane between Python and R.
+- Sourcing full Python scripts.
+- Display of matplotlib plots within the plots pane in RStudio and inline in the notebooks.
+
 ## Type conversion
 
 ```{r}
-r <- c('Single-element vector','Multi-element vector','List of multiple types',
+r_type <- c('Single-element vector','Multi-element vector','List of multiple types',
        'Named list','Matrix/Array','Data Frame','Function','NULL, TRUE, FALSE')
 
-py <- c('Scalar','List','Tuple','Dict','NumPy ndarray','Pandas DataFrame',
+py_type <- c('Scalar','List','Tuple','Dict','NumPy ndarray','Pandas DataFrame',
         'Python function','None, True, False')
 
 ex <- c('1, 1L, TRUE, "foo"','c(1.0, 2.0, 3.0), c(1L, 2L, 3L)','list(1L, TRUE, "foo")',
@@ -63,12 +103,11 @@ ex <- c('1, 1L, TRUE, "foo"','c(1.0, 2.0, 3.0), c(1L, 2L, 3L)','list(1L, TRUE, "
 
 source <- 'https://rstudio.github.io/reticulate/'
   
-  
 
 library(tableHTML)
 
-data.frame(R = r,
-           Python = py,
+data.frame(R = r_type,
+           Python = py_type,
            Examples = ex) %>% 
   tableHTML(rownames = FALSE,
             widths = c(200, 200, 300),
@@ -77,11 +116,51 @@ data.frame(R = r,
 
 ```
 
+## test code
+
+- Python chunk 
+```{python include=TRUE, echo=TRUE}
+import numpy as np
+
+var_py = np.array([i for i in range(10)])
+```
+
+- R chunk - access python variables from R
+```{r include=TRUE, echo=TRUE}
+library(reticulate)
+# see what's in the python variable
+py$var_py
+# define a new variable in R 
+r_var = py$var_py*2
+```
+
+- Or access R variables form python
+```{python include=TRUE, echo=TRUE}
+var_reshaped = np.reshape(r.r_var, (5, 2))
+print(var_reshaped)
+```
 
 ## test
 
 ```{r}
-grid::grid.raster(png::readPNG('python-logo-master-v3-TM.png'))
+grid::grid.raster(png::readPNG('img/python-logo-master-v3-TM.png'))
 ```
 
+## backup
+<img src="img/arrow_before_after.png" alt="drawing" width="1000" height="400"/>
+<small> Source: https://arrow.apache.org/ </small>
+
+## backup
+
+usual practice:
+
+- Each system has its own internal memory format 
+- 70-80% computation wasted on serialization and deserialization 
+- Similar functionaltiy implemented in multiple projects
+
+with arrow:
+
+- All systems utilize the same memory format 
+- No overhead for cross-systemcommunication 
+- Projects can share functionality 
 
