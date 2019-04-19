@@ -24,8 +24,9 @@ knitr::knit_engines$set(python=reticulate::eng_python)
 ## Contents
 
 - Background?
+- Apache Arrow
 - Feather
-- Ursa / Apache Arrow
+- Ursa Labs
 - Rstudio 1.2 / reticulated python
 
 ## Why?
@@ -34,16 +35,15 @@ knitr::knit_engines$set(python=reticulate::eng_python)
 - both languages have rich interfaces to C++
 - most of under-the-hood coding is done in C++
 
-## Feather
-
 ## Apache Arrow
-A standarised representation of tabular data (columnar data) in the RAM
+A standarised, language-independent representation of in-memory columnar data
 
 - Exchange data without conversion between the different languages including python and R (also C, C++, C#, Go, Java, JavaScript, MATLAB, Ruby, and Rust.)
-- Zero-copy dataflow
-- Optimised for analysing purposes 
-- Flat and nested format
-- More native data types than python ---> and everything is nullable
+- Zero-copy dataflow.
+- Optimised for analysing purposes .
+- Supports flat and nested format and conveniently many native data types.
+- Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, ... ).
+
 
 ## Apache Arrow
 
@@ -66,7 +66,21 @@ tibble::tibble(before = c('<ul> <li> Each system has its own internal memory for
   add_css_column(css=list('border', '1px solid transparent'), columns = 1:2)
 ```
 
+
+## Feather
+- A part of the Apache Arrow project.
+- Uses the Apache Arrow columnar specification to represent binary data **on disk**
+- Fast, lightweight, and easy-to-use binary file format for storing data frames.
+- High read and write performance.
+- Quickly exchanging data between Python and R code, however it's not designed for long-term data storage.
+
 ## Ursa Labs
+When to comes to the most fundamental tasks (data access, data manipulation, data analysis, ……. ), data science tools are not optimised to make use of state-of-the-art hardware, as the efforts has been mainly focused on machine learning problems.
+
+- Ursa Labs is an organisation founded with the goal of advancing open source, cross-language software for data scientists.
+- Focuses on the data science tools of the Apache Arrow Project (Arrow has a broader application scope) 
+- May expand to create software artifacts focused more specifically on the data science domain. 
+
 
 ## Rstudio 1.2 / reticulated python
 ### The package: reticulate

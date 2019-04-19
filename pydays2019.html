@@ -3246,8 +3246,9 @@ border: 0 px solid black !important;
 
 <ul>
 <li>Background?</li>
+<li>Apache Arrow</li>
 <li>Feather</li>
-<li>Ursa / Apache Arrow</li>
+<li>Ursa Labs</li>
 <li>Rstudio 1.2 / reticulated python</li>
 </ul>
 
@@ -3259,24 +3260,22 @@ border: 0 px solid black !important;
 <li>most of under-the-hood coding is done in C++</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Feather</h2></hgroup><article  id="feather">
-
 </article></slide><slide class=""><hgroup><h2>Apache Arrow</h2></hgroup><article  id="apache-arrow">
 
-<p>A standarised representation of tabular data (columnar data) in the RAM</p>
+<p>A standarised, language-independent representation of in-memory columnar data</p>
 
 <ul>
 <li>Exchange data without conversion between the different languages including python and R (also C, C++, C#, Go, Java, JavaScript, MATLAB, Ruby, and Rust.)</li>
-<li>Zero-copy dataflow</li>
-<li>Optimised for analysing purposes</li>
-<li>Flat and nested format</li>
-<li>More native datatypes than python —&gt; and everything is nullable</li>
+<li>Zero-copy dataflow.</li>
+<li>Optimised for analysing purposes .</li>
+<li>Supports flat and nested format and conveniently many native data types.</li>
+<li>Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, … ).</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Apache Arrow</h2></hgroup><article  id="apache-arrow-1">
 
 
-<table style="border-collapse:collapse;" class=table_3197 border=1>
+<table style="border-collapse:collapse;" class=table_4204 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -3304,7 +3303,25 @@ border: 0 px solid black !important;
 </tbody>
 </table>
 
+</article></slide><slide class=""><hgroup><h2>Feather</h2></hgroup><article  id="feather">
+
+<ul>
+<li>A part of the Apache Arrow project.</li>
+<li>Uses the Apache Arrow columnar specification to represent binary data <strong>on disk</strong></li>
+<li>Fast, lightweight, and easy-to-use binary file format for storing data frames.</li>
+<li>High read and write performance.</li>
+<li>Quickly exchanging data between Python and R code, however it’s not designed for long-term data storage.</li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Ursa Labs</h2></hgroup><article  id="ursa-labs">
+
+<p>When to comes to the most fundamental tasks (data access, data manipulation, data analysis, ……. ), data science tools are not optimised to make use of state-of-the-art hardware, as the efforts has been mainly focused on machine learning problems.</p>
+
+<ul>
+<li>Ursa Labs is an organisation founded with the goal of advancing open source, cross-language software for data scientists.</li>
+<li>Focuses on the data science tools of the Apache Arrow Project (Arrow has a broader application scope)</li>
+<li>May expand to create software artifacts focused more specifically on the data science domain.</li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>Rstudio 1.2 / reticulated python</h2></hgroup><article  id="rstudio-1.2-reticulated-python">
 

@@ -19,8 +19,9 @@ output:
 ## Contents
 
 - Background?
+- Apache Arrow
 - Feather
-- Ursa / Apache Arrow
+- Ursa Labs
 - Rstudio 1.2 / reticulated python
 
 ## Why?
@@ -29,21 +30,20 @@ output:
 - both languages have rich interfaces to C++
 - most of under-the-hood coding is done in C++
 
-## Feather
-
 ## Apache Arrow
-A standarised representation of tabular data (columnar data) in the RAM
+A standarised, language-independent representation of in-memory columnar data
 
 - Exchange data without conversion between the different languages including python and R (also C, C++, C#, Go, Java, JavaScript, MATLAB, Ruby, and Rust.)
-- Zero-copy dataflow
-- Optimised for analysing purposes 
-- Flat and nested format
-- More native datatypes than python ---> and everything is nullable
+- Zero-copy dataflow.
+- Optimised for analysing purposes .
+- Supports flat and nested format and conveniently many native data types.
+- Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, ... ).
+
 
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_3197 border=1>
+<table style="border-collapse:collapse;" class=table_4204 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -71,7 +71,21 @@ A standarised representation of tabular data (columnar data) in the RAM
 </tbody>
 </table><!--/html_preserve-->
 
+
+## Feather
+- A part of the Apache Arrow project.
+- Uses the Apache Arrow columnar specification to represent binary data **on disk**
+- Fast, lightweight, and easy-to-use binary file format for storing data frames.
+- High read and write performance.
+- Quickly exchanging data between Python and R code, however it's not designed for long-term data storage.
+
 ## Ursa Labs
+When to comes to the most fundamental tasks (data access, data manipulation, data analysis, ……. ), data science tools are not optimised to make use of state-of-the-art hardware, as the efforts has been mainly focused on machine learning problems.
+
+- Ursa Labs is an organisation founded with the goal of advancing open source, cross-language software for data scientists.
+- Focuses on the data science tools of the Apache Arrow Project (Arrow has a broader application scope) 
+- May expand to create software artifacts focused more specifically on the data science domain. 
+
 
 ## Rstudio 1.2 / reticulated python
 ### The package: reticulate
