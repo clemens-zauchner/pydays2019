@@ -12,38 +12,93 @@ output:
     keep_md: true
     #smaller: true  ## only works without "---" slide breaks (use ##)
     slide_level: 2
+    logo: img/py_r_logo.png
+    incremental: true
 ---
+
 
 
 
 ## Contents
 
-- Background?
+- Background - why we are talking about it
 - Apache Arrow
 - Feather
 - Ursa Labs
 - Rstudio 1.2 / reticulated python
 
-## Why?
+# Background
+
+## Background
+
+- There is an argument in the data science space
+- Can be observed by countless articles / blog posts etc on R vs Python
+- <strong>BUT</strong>: this argument is not very helpful and divisive
+- Focus should be on the task at hand, not the tools
+  + you can drill a hole with a hammer, but it won't be elegant
+- Both tools have strengths and weaknesses (not part of this talk)
+- You are here to solve a problem, not to have a favourite algorithm or tool
+
+## Reality check
+
+- KD Nuggets Poll 2018: most of the people who use Python or R use both (44.1%)
+
+
+
+<img src="pydays2019_files/figure-html/unnamed-chunk-2-1.png" width="720" />
+
+## What Python and R have in common
 
 - A lot of data science teams use both
-- both languages have rich interfaces to C++
-- most of under-the-hood coding is done in C++
+- both languages have rich interfaces to C / C++
+- most of under-the-hood coding is done in C / C++
+
+\
+
+<strong>Would it not make sense to aim for interoperability?</strong>
+
+# placeholder
+
+## placeholder
+
+add some bow to the story, outlook on the talk? 
+
+## Feather
+
+- Python and R use data frames as a fundamental data structure
+  + Pandas data frame are based on the idea of R's data frames
+- Implemented after the announcement of Apache Arrow
+  + Aim: share data between Python and R 
+  + Use a binary file format for data frames
+  + bridge time until Apache Arrow is implemented
+- Uses the Apache Arrow columnar specification to represent binary data **on disk** (zero-copy access)
+- Fast, lightweight, and easy-to-use binary file format for storing data frames.
+- High read and write performance.
+
+
+- Quickly exchange data between Python and R code, however it's not designed for long-term data storage.
+
+## Limitations of Feather
+
+- Supports limited scalar value types, adequate only for representing typical data found in R and pandas
+- Supports only a single batch of rows (no ability to append to existing files)
+- Only non-nested data types and categorical (dictionary-encoded) types are supported
 
 ## Apache Arrow
 A standarised, language-independent representation of in-memory columnar data
 
 - Exchange data without conversion between the different languages including python and R (also C, C++, C#, Go, Java, JavaScript, MATLAB, Ruby, and Rust.)
-- Zero-copy dataflow.
-- Optimised for analysing purposes .
-- Supports flat and nested format and conveniently many native data types.
-- Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, ... ).
+- Zero-copy dataflow
+- Optimised for analysing purposes
+- Supports flat and nested format and conveniently many native data types
+- Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, ... )
+
 
 
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4204 border=1>
+<table style="border-collapse:collapse;" class=table_8566 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -72,19 +127,15 @@ A standarised, language-independent representation of in-memory columnar data
 </table><!--/html_preserve-->
 
 
-## Feather
-- A part of the Apache Arrow project.
-- Uses the Apache Arrow columnar specification to represent binary data **on disk**
-- Fast, lightweight, and easy-to-use binary file format for storing data frames.
-- High read and write performance.
-- Quickly exchanging data between Python and R code, however it's not designed for long-term data storage.
-
 ## Ursa Labs
+
 When to comes to the most fundamental tasks (data access, data manipulation, data analysis, ……. ), data science tools are not optimised to make use of state-of-the-art hardware, as the efforts has been mainly focused on machine learning problems.
 
-- Ursa Labs is an organisation founded with the goal of advancing open source, cross-language software for data scientists.
+- Ursa Labs is an organisation founded 
+  + by Wes McKinney (and Hadley Wickham as advisor for R)
+  + with the goal of advancing open source, cross-language software for data scientists
 - Focuses on the data science tools of the Apache Arrow Project (Arrow has a broader application scope) 
-- May expand to create software artifacts focused more specifically on the data science domain. 
+- May expand to create software artifacts focused more specifically on the data science domain
 
 
 ## Rstudio 1.2 / reticulated python
@@ -109,7 +160,7 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 
 ## Type conversion
 
-![](pydays2019_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](pydays2019_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ## test code
 
@@ -117,6 +168,7 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 
 ```python
 import numpy as np
+
 var_py = np.array([i for i in range(10)])
 ```
 
@@ -150,7 +202,7 @@ print(var_reshaped)
 
 ## test
 
-![](pydays2019_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](pydays2019_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 ## backup
 <img src="img/arrow_before_after.png" alt="drawing" width="1000" height="400"/>

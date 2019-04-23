@@ -82,6 +82,32 @@ code {
     color: #246dc5;  /* dark blue */
 }
 
+
+/* gdbar size (that contains logo) on title page */
+/* needs to have greater height than logo image, other stuff is irrelevant */
+.gdbar {
+  position:absolute !important;
+  top: 50px !important; left: auto; right: 0px !important; width: 0px !important;
+  height: 500px !important;  /* modify if logo is larger than this in height */
+}
+/* logo size on title page */
+.gdbar img {
+  position: absolute; 
+  top: 100px;
+  left: 80px;
+  width: 407.75px !important;
+  height: 83.5px !important;
+}
+
+/* logo size on slides */
+slides > slide:not(.nobackground):before {
+  width: 0px; height: 0px; /* modify width and height (twice) */
+  background-size: 0px 0px;
+  position: absolute; left: auto;
+  right: -30px;  /* modify position */
+  top: 10px;
+}
+
 /* symbols like %>% in r code 
 .prettyprint .pun {
     color: #9027a0;  /* dark magenta 
