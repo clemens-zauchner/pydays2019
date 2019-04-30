@@ -22,7 +22,8 @@ knitr::opts_chunk$set(echo = FALSE,
 # make sure python3 is used
 python_configs <- reticulate::py_config()$python_versions
 python3 <- python_configs[grepl("3", python_configs)]
-Sys.setenv(RETICULATE_PYTHON = python3)
+if (length(python3) == 1)
+  Sys.setenv(RETICULATE_PYTHON = python3)
 knitr::knit_engines$set(python=reticulate::eng_python)
 ```
 
@@ -212,6 +213,39 @@ data.frame(R = r_type,
             widths = c(200, 200, 300),
             footer = paste0("source: ", source)) %>% 
   tableHTML_to_image(zoom = 2)
+
+```
+
+## R Notebooks
+<img src="img/Py_and_R_notebook.png" width="900" height="500"/>
+
+## Python Code 
+```{python include=TRUE, echo=TRUE, fig.height = 3, fig.width = 5}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# get data from R
+iris_groups = r.iris.groupby('Species')
+# and plot with python
+fig, ax = plt.subplots()
+for name, group in iris_groups:
+    ax.plot(group['Sepal.Width'], group['Petal.Width'], 'o', label=name)
+ax.legend()
+plt.show()
+```
+
+```{python}
+diamonds = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv')
+```
+
+## R Code
+```{r include=TRUE, echo=TRUE, fig.height = 4, fig.width = 7}
+library(reticulate)
+library(ggplot2)
+# get data from Python and plot with R
+ggplot(py$diamonds, aes(cut, carat)) +
+  geom_boxplot(aes(color = cut), na.rm = TRUE, show.legend = FALSE)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
 

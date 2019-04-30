@@ -13,7 +13,6 @@ output:
     #smaller: true  ## only works without "---" slide breaks (use ##)
     slide_level: 2
     logo: img/py_r_logo.png
-    incremental: true
 ---
 
 
@@ -22,12 +21,11 @@ output:
 ## Contents
 
 - Background - why we are talking about it
-- Apache Arrow
 - Feather
+- Apache Arrow
 - Ursa Labs
 - Rstudio 1.2 / reticulated python
 
-# Background
 
 ## Background
 
@@ -94,11 +92,10 @@ A standarised, language-independent representation of in-memory columnar data
 - Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, ... )
 
 
-
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_8566 border=1>
+<table style="border-collapse:collapse;" class=table_7277 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -162,13 +159,47 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 
 ![](pydays2019_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
+## R Notebooks
+<img src="img/Py_and_R_notebook.png" width="900" height="500"/>
+
+## Python Code 
+
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+# get data from R
+iris_groups = r.iris.groupby('Species')
+# and plot with python
+fig, ax = plt.subplots()
+for name, group in iris_groups:
+    ax.plot(group['Sepal.Width'], group['Petal.Width'], 'o', label=name)
+ax.legend()
+plt.show()
+```
+
+<img src="pydays2019_files/figure-html/unnamed-chunk-5-1.png" width="480" />
+
+
+
+## R Code
+
+```r
+library(reticulate)
+library(ggplot2)
+# get data from Python and plot with R
+ggplot(py$diamonds, aes(cut, carat)) +
+  geom_boxplot(aes(color = cut), na.rm = TRUE, show.legend = FALSE)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+![](pydays2019_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+
 ## test code
 
 - Python chunk 
 
 ```python
 import numpy as np
-
 var_py = np.array([i for i in range(10)])
 ```
 
@@ -202,7 +233,7 @@ print(var_reshaped)
 
 ## test
 
-![](pydays2019_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](pydays2019_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 ## backup
 <img src="img/arrow_before_after.png" alt="drawing" width="1000" height="400"/>
