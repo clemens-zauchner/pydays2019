@@ -21,11 +21,12 @@ output:
 ## Contents
 
 - Background - why we are talking about it
-- Feather
-- Apache Arrow
-- Ursa Labs
-- Rstudio 1.2 / reticulated python
-
+- Ways of closing the gap
+  + Feather
+  + Apache Arrow
+  + Ursa Labs
+  + Rstudio 1.2 / reticulated python
+- Conclusion
 
 ## Background
 
@@ -36,14 +37,54 @@ output:
   + you can drill a hole with a hammer, but it won't be elegant
 - Both tools have strengths and weaknesses (not part of this talk)
 - You are here to solve a problem, not to have a favourite algorithm or tool
+  
+## Reality check {.columns-2}
 
-## Reality check
+<img src="pydays2019_files/figure-html/unnamed-chunk-1-1.png" width="432" />
 
-- KD Nuggets Poll 2018: most of the people who use Python or R use both (44.1%)
+KD Nuggets Poll 2018: most of the people who use Python or R use both 
+
+\
+
+
+<!--html_preserve-->
+<table style="border-collapse:collapse;" class=table_4090 border=0>
+<col width="150">
+<col width="50">
+<col width="50">
+<thead>
+<tr style="background-color:#428bca;">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Total</th>
+  <th id="tableHTML_header_3">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td id="tableHTML_rownames">R or Python Users</td>
+  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">2094</td>
+  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">100 %</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">R and Python</td>
+  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">924</td>
+  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">44.13 %</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">R only</td>
+  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">578</td>
+  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">27.6 %</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">Python only</td>
+  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">592</td>
+  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">28.27%</td>
+</tr>
+</tbody>
+</table><!--/html_preserve-->
 
 
 
-<img src="pydays2019_files/figure-html/unnamed-chunk-2-1.png" width="720" />
 
 ## What Python and R have in common
 
@@ -54,12 +95,6 @@ output:
 \
 
 <strong>Would it not make sense to aim for interoperability?</strong>
-
-# placeholder
-
-## placeholder
-
-add some bow to the story, outlook on the talk? 
 
 ## Feather
 
@@ -74,10 +109,9 @@ add some bow to the story, outlook on the talk?
 - High read and write performance.
 
 
-- Quickly exchange data between Python and R code, however it's not designed for long-term data storage.
-
 ## Limitations of Feather
 
+- Quickly exchange data between Python and R code, however it's not designed for long-term data storage.
 - Supports limited scalar value types, adequate only for representing typical data found in R and pandas
 - Supports only a single batch of rows (no ability to append to existing files)
 - Only non-nested data types and categorical (dictionary-encoded) types are supported
@@ -87,7 +121,7 @@ A standarised, language-independent representation of in-memory columnar data
 
 - Exchange data without conversion between the different languages including python and R (also C, C++, C#, Go, Java, JavaScript, MATLAB, Ruby, and Rust.)
 - Zero-copy dataflow
-- Optimised for analysing purposes
+- Optimised for analytic purposes
 - Supports flat and nested format and conveniently many native data types
 - Backed by key developers of 13 major open source projects (including Cassandra, Hadoop, HBase, Parquet, Spark, ... )
 
@@ -95,7 +129,7 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_7277 border=1>
+<table style="border-collapse:collapse;" class=table_4340 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -135,25 +169,28 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 - May expand to create software artifacts focused more specifically on the data science domain
 
 
-## Rstudio 1.2 / reticulated python
+## Rstudio 1.2 / reticulated python {.smaller}
 ### The package: reticulate
 - Reticulate is an R package that makes it possible to embed a Python session within an R process.
 - Provides wrapper functions to use python modules and scripts
     + import, python_source, repl_python, use_python, py_install, …… 
-- Data conversion back and forth between the two languages happens through C++.
-- R and Python variables are accessible from both environments.
-    + The objects  py and r provide this access.
+- Data conversion back and forth between the two languages happens through C++
+- R and Python variables are accessible from both environments
+    + The objects  py and r provide this access
 
-## Rstudio 1.2 / reticulated python
+## Rstudio 1.2 / reticulated python {.smaller}
 ### The IDE: Rstudio 1.2
-- Automatic access to a python REPL when stepping in a python script.
-- Line-by-line execution of Python code.
-- Support for Python syntax highlighting. 
+- Automatic access to a python REPL when stepping into a python script
+  + read–eval–print loop 
+  + interactive language shell
+  + simple, interactive computer programming environment 
+- Line-by-line execution of Python code
+- Support for Python syntax highlighting
 - Autocompletion and Inline help for Python ...... HOOORAY!!!  
-- R notebooks with Python code chunks.
-- Automatic switch in the code history pane between Python and R.
-- Sourcing full Python scripts.
-- Display of matplotlib plots within the plots pane in RStudio and inline in the notebooks.
+- R notebooks with Python code chunks
+- Automatic switch in the code history pane between Python and R
+- Sourcing full Python scripts
+- Display of matplotlib plots within the plots pane in RStudio and inline in the notebooks
 
 ## Type conversion
 
@@ -167,6 +204,7 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 ```python
 import matplotlib.pyplot as plt
 import pandas as pd
+
 # get data from R
 iris_groups = r.iris.groupby('Species')
 # and plot with python
@@ -194,62 +232,29 @@ ggplot(py$diamonds, aes(cut, carat)) +
 
 ![](pydays2019_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
-## test code
+## Is RStudio a good alternative as a Python IDE?
 
-- Python chunk 
+- It makes switching from R to Python certainly easier
+- It supports syntax highlighting and autocomplete
+- It is not intended as a Python IDE (yet?)
+- Since it's slightly painful, it's probably a Python IDE for data science though ;)
 
-```python
-import numpy as np
-var_py = np.array([i for i in range(10)])
-```
+## Conclusion
 
-- R chunk - access python variables from R
+- R <strong>*vs*</strong> Python is now R <strong>*and*</strong> Python
+    + It's not about the tool, it's about the task at hand
+- There are many initiatives to bring the tools closer together
+    + Ursa labs => Apache Arrow
+    + RStudio => Python integration
+- The dogmatic war was boring before it started
+- This is the time to start to embrace the strengths of the tools and to collaborate
 
-```r
-library(reticulate)
-# see what's in the python variable
-py$var_py
-```
+# Questions?
 
- [1] 0 1 2 3 4 5 6 7 8 9
-
-```r
-# define a new variable in R 
-r_var = py$var_py*2
-```
-
-- Or access R variables form python
-
-```python
-var_reshaped = np.reshape(r.r_var, (5, 2))
-print(var_reshaped)
-```
-
-[[ 0.  2.]
- [ 4.  6.]
- [ 8. 10.]
- [12. 14.]
- [16. 18.]]
-
-## test
-
-![](pydays2019_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
-
-## backup
-<img src="img/arrow_before_after.png" alt="drawing" width="1000" height="400"/>
-<small> Source: https://arrow.apache.org/ </small>
-
-## backup
-
-usual practice:
-
-- Each system has its own internal memory format 
-- 70-80% computation wasted on serialization and deserialization 
-- Similar functionaltiy implemented in multiple projects
-
-with arrow:
-
-- All systems utilize the same memory format 
-- No overhead for cross-systemcommunication 
-- Projects can share functionality 
+## Sources
+https://towardsdatascience.com/from-r-vs-python-to-r-and-python-aa25db33ce17
+https://www.kdnuggets.com/2017/06/ecosystem-data-science-machine-learning-software.html/2
+http://ursalabs.org/tech/
+http://wesmckinney.com/blog/feather-arrow-future/
+https://arrow.apache.org/
 
