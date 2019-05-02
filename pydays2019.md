@@ -11,6 +11,7 @@ output:
     slide_level: 2
     theme: null
     toc: yes
+  widescreen: true
   beamer_presentation: default
 ---
 
@@ -52,7 +53,7 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
   <br>
   <br>
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_5489 border=0>
+<table style="border-collapse:collapse;" class=table_2495 border=0>
 <col width="150">
 <col width="50">
 <col width="50">
@@ -132,7 +133,7 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4807 border=1>
+<table style="border-collapse:collapse;" class=table_9579 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">

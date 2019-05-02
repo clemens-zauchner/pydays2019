@@ -11,6 +11,7 @@ output:
     slide_level: 2
     theme: null
     toc: yes
+  widescreen: true
   beamer_presentation: default
 ---
 
