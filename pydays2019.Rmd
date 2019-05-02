@@ -86,7 +86,7 @@ plt.show()
   <br>
   <br>
   <br>
-```{r}
+```{r fig.height = 1.5, fig.width = 3.5}
 # dplyr::tibble('R only' = c('27.6 %'),
 #            Python = c('28.7%'),
 #            'R or Python Users' = c('72.7 %'),
@@ -97,11 +97,12 @@ plt.show()
                 'Python only' = c(592, '28.27%')) %>%
   t() %>% 
   tableHTML(headers = c('Total', 'Percent'),
-            widths =  c(150, 50, 50)) %>% 
+            widths =  c(150, 50, 70)) %>% 
   add_theme('rshiny-blue') %>% 
   add_css_column(1:2, 
                  css = list('text-align',
-                            'right !important'))
+                            'right !important')) %>% 
+  tableHTML_to_image()
 ```
   </div>
 </div> 
@@ -149,8 +150,8 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 ```{r}
-header_img <- c('<img src="https://arrow.apache.org/img/copy.png" width="450" height="400"></img>', 
-                '<img src="https://arrow.apache.org/img/shared.png" width="450" height="400"></img>')
+header_img <- c('<img src="https://arrow.apache.org/img/copy.png" width="350" height="350"></img>', 
+                '<img src="https://arrow.apache.org/img/shared.png" width="350" height="350"></img>')
 tibble::tibble(before = c('<ul> <li> Each system has its own internal memory format', 
                           '<ul> <li> 70-80% computation wasted on serialization and deserialization',
                           '<ul> <li> Similar functionaltiy implemented in multiple projects', 
@@ -279,9 +280,9 @@ ggplot(py$diamonds, aes(cut, carat)) +
 # Questions?
 
 ## Sources
-https://towardsdatascience.com/from-r-vs-python-to-r-and-python-aa25db33ce17
-https://www.kdnuggets.com/2017/06/ecosystem-data-science-machine-learning-software.html/2
-http://ursalabs.org/tech/
-http://wesmckinney.com/blog/feather-arrow-future/
-https://arrow.apache.org/
+- https://towardsdatascience.com/from-r-vs-python-to-r-and-python-aa25db33ce17
+- https://www.kdnuggets.com/2017/06/ecosystem-data-science-machine-learning-software.html/2
+- http://ursalabs.org/tech/
+- http://wesmckinney.com/blog/feather-arrow-future/
+- https://arrow.apache.org/
 

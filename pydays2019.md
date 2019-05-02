@@ -52,41 +52,7 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
   <br>
   <br>
   <br>
-<!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_2495 border=0>
-<col width="150">
-<col width="50">
-<col width="50">
-<thead>
-<tr style="background-color:#428bca;">
-  <th id="tableHTML_header_1"> </th>
-  <th id="tableHTML_header_2">Total</th>
-  <th id="tableHTML_header_3">Percent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td id="tableHTML_rownames">R or Python Users</td>
-  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">2094</td>
-  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">100 %</td>
-</tr>
-<tr style="background-color:#f2f2f2;">
-  <td id="tableHTML_rownames">R and Python</td>
-  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">924</td>
-  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">44.13 %</td>
-</tr>
-<tr>
-  <td id="tableHTML_rownames">R only</td>
-  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">578</td>
-  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">27.6 %</td>
-</tr>
-<tr style="background-color:#f2f2f2;">
-  <td id="tableHTML_rownames">Python only</td>
-  <td id="tableHTML_column_1" style="text-align:right !important;text-align:center;">592</td>
-  <td id="tableHTML_column_2" style="text-align:right !important;text-align:center;">28.27%</td>
-</tr>
-</tbody>
-</table><!--/html_preserve-->
+![](pydays2019_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
   </div>
 </div> 
 
@@ -133,12 +99,12 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_9579 border=1>
+<table style="border-collapse:collapse;" class=table_1684 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
-  <th id="tableHTML_header_1" style="border:1px solid transparent;"><img src="https://arrow.apache.org/img/copy.png" width="450" height="400"></img></th>
-  <th id="tableHTML_header_2" style="border:1px solid transparent;"><img src="https://arrow.apache.org/img/shared.png" width="450" height="400"></img></th>
+  <th id="tableHTML_header_1" style="border:1px solid transparent;"><img src="https://arrow.apache.org/img/copy.png" width="350" height="350"></img></th>
+  <th id="tableHTML_header_2" style="border:1px solid transparent;"><img src="https://arrow.apache.org/img/shared.png" width="350" height="350"></img></th>
 </tr>
 </thead>
 <tbody>
@@ -208,7 +174,6 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 ```python
 import matplotlib.pyplot as plt
 import pandas as pd
-
 # get data from R
 iris_groups = r.iris.groupby('Species')
 # and plot with python
@@ -256,9 +221,9 @@ ggplot(py$diamonds, aes(cut, carat)) +
 # Questions?
 
 ## Sources
-https://towardsdatascience.com/from-r-vs-python-to-r-and-python-aa25db33ce17
-https://www.kdnuggets.com/2017/06/ecosystem-data-science-machine-learning-software.html/2
-http://ursalabs.org/tech/
-http://wesmckinney.com/blog/feather-arrow-future/
-https://arrow.apache.org/
+- https://towardsdatascience.com/from-r-vs-python-to-r-and-python-aa25db33ce17
+- https://www.kdnuggets.com/2017/06/ecosystem-data-science-machine-learning-software.html/2
+- http://ursalabs.org/tech/
+- http://wesmckinney.com/blog/feather-arrow-future/
+- https://arrow.apache.org/
 
