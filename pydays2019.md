@@ -99,30 +99,35 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_1684 border=1>
+<table style="border-collapse:collapse;" class=table_4474 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
-  <th id="tableHTML_header_1" style="border:1px solid transparent;"><img src="https://arrow.apache.org/img/copy.png" width="350" height="350"></img></th>
-  <th id="tableHTML_header_2" style="border:1px solid transparent;"><img src="https://arrow.apache.org/img/shared.png" width="350" height="350"></img></th>
+  <th id="tableHTML_header_1" style="border:1px solid transparent;"><img src="img/copy.png" width="400" height="222"></img></th>
+  <th id="tableHTML_header_2" style="border:1px solid transparent;"> </th>
+  <th id="tableHTML_header_3" style="border:1px solid transparent;"><img src="img/shared.png" width="400" height="222"></img></th>
 </tr>
 </thead>
 <tbody>
 <tr style="border:1px solid transparent;">
   <td id="tableHTML_column_1" style="border:1px solid transparent;"><ul> <li> Each system has its own internal memory format</td>
-  <td id="tableHTML_column_2" style="border:1px solid transparent;"><ul> <li>All systems utilize the same memory format</td>
+  <td id="tableHTML_column_2" style="border:1px solid transparent;"> </td>
+  <td id="tableHTML_column_3" style="border:1px solid transparent;"><ul> <li>All systems utilize the same memory format</td>
 </tr>
 <tr style="border:1px solid transparent;">
   <td id="tableHTML_column_1" style="border:1px solid transparent;"><ul> <li> 70-80% computation wasted on serialization and deserialization</td>
-  <td id="tableHTML_column_2" style="border:1px solid transparent;"><ul> <li>No overhead for cross-system communication</td>
+  <td id="tableHTML_column_2" style="border:1px solid transparent;"> </td>
+  <td id="tableHTML_column_3" style="border:1px solid transparent;"><ul> <li>No overhead for cross-system communication</td>
 </tr>
 <tr style="border:1px solid transparent;">
   <td id="tableHTML_column_1" style="border:1px solid transparent;"><ul> <li> Similar functionaltiy implemented in multiple projects</td>
-  <td id="tableHTML_column_2" style="border:1px solid transparent;"><ul> <li>Projects can share functionality</td>
+  <td id="tableHTML_column_2" style="border:1px solid transparent;"> </td>
+  <td id="tableHTML_column_3" style="border:1px solid transparent;"><ul> <li>Projects can share functionality</td>
 </tr>
 <tr style="border:1px solid transparent;">
-  <td id="tableHTML_column_1" style="border:1px solid transparent;"></td>
-  <td id="tableHTML_column_2" style="border:1px solid transparent;"></td>
+  <td id="tableHTML_column_1" style="border:1px solid transparent;"> </td>
+  <td id="tableHTML_column_2" style="border:1px solid transparent;"> </td>
+  <td id="tableHTML_column_3" style="border:1px solid transparent;"></td>
 </tr>
 </tbody>
 </table><!--/html_preserve-->
