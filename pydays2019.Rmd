@@ -27,11 +27,6 @@ use_python("/usr/bin/python3")
 library(tableHTML)
 ```
 
-## test
-
-```{r}
-print(getwd())
-```
 
 ## Contents
 
@@ -109,7 +104,6 @@ plt.show()
 ```
   </div>
 </div> 
-<strong style="text-align:center;">Would it not make sense to aim for interoperability?</strong>
 
 ## What Python and R have in common
 
@@ -117,6 +111,9 @@ plt.show()
 - both languages have rich interfaces to C / C++
 - most of under-the-hood coding is done in C / C++
 
+\
+
+<strong style="text-align:center;">Would it not make sense to aim for interoperability?</strong>
 
 ## Feather
 
