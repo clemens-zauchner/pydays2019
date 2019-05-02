@@ -22,10 +22,10 @@ output:
 
 - Background - why we are talking about it
 - Ways of closing the gap
-  + Feather
-  + Apache Arrow
-  + Ursa Labs
-  + Rstudio 1.2 / reticulated python
+    + Feather
+    + Apache Arrow
+    + Ursa Labs
+    + Rstudio 1.2 / reticulated python
 - Conclusion
 
 ## Background
@@ -34,7 +34,7 @@ output:
 - Can be observed by countless articles / blog posts etc on R vs Python
 - <strong>BUT</strong>: this argument is not very helpful and divisive
 - Focus should be on the task at hand, not the tools
-  + you can drill a hole with a hammer, but it won't be elegant
+    + you can drill a hole with a hammer, but it won't be elegant
 - Both tools have strengths and weaknesses (not part of this talk)
 - You are here to solve a problem, not to have a favourite algorithm or tool
   
@@ -69,11 +69,11 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
 ## Feather
 
 - Python and R use data frames as a fundamental data structure
-  + Pandas data frame are based on the idea of R's data frames
+    + Pandas data frame are based on the idea of R's data frames
 - Implemented after the announcement of Apache Arrow
-  + Aim: share data between Python and R 
-  + Use a binary file format for data frames
-  + bridge time until Apache Arrow is implemented
+    + Aim: share data between Python and R 
+    + Use a binary file format for data frames
+    + bridge time until Apache Arrow is implemented
 - Uses the Apache Arrow columnar specification to represent binary data **on disk** (zero-copy access)
 - Fast, lightweight, and easy-to-use binary file format for storing data frames.
 - High read and write performance.
@@ -99,7 +99,7 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4474 border=1>
+<table style="border-collapse:collapse;" class=table_9059 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -138,13 +138,13 @@ A standarised, language-independent representation of in-memory columnar data
 When to comes to the most fundamental tasks (data access, data manipulation, data analysis, ……. ), data science tools are not optimised to make use of state-of-the-art hardware, as the efforts has been mainly focused on machine learning problems.
 
 - Ursa Labs is an organisation founded 
-  + by Wes McKinney (and Hadley Wickham as advisor for R)
-  + with the goal of advancing open source, cross-language software for data scientists
+    + by Wes McKinney (and Hadley Wickham as advisor for R)
+    + with the goal of advancing open source, cross-language software for data scientists
 - Focuses on the data science tools of the Apache Arrow Project (Arrow has a broader application scope) 
 - May expand to create software artifacts focused more specifically on the data science domain
 
 
-## Rstudio 1.2 / reticulated python {.smaller}
+## Rstudio 1.2 / reticulated python 
 ### The package: reticulate
 - Reticulate is an R package that makes it possible to embed a Python session within an R process.
 - Provides wrapper functions to use python modules and scripts
@@ -160,9 +160,9 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 ## Rstudio 1.2 / reticulated python {.smaller}
 ### The IDE: Rstudio 1.2
 - Automatic access to a python REPL when stepping into a python script
-  + read–eval–print loop 
-  + interactive language shell
-  + simple, interactive computer programming environment 
+    + read–eval–print loop 
+    + interactive language shell
+    + simple, interactive computer programming environment 
 - Line-by-line execution of Python code
 - Support for Python syntax highlighting
 - Autocompletion and Inline help for Python ...... HOOORAY!!!  
