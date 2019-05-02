@@ -2,21 +2,23 @@
 title: "Surpassing the R vs Python dogma"
 author: "Dana Jomar, Clemens Zauchner"
 date: "May 2019"
-output: 
+output:
   ioslides_presentation:
-    toc: true
-    df_print: null
-    theme: null
     css: style.css
-    widescreen: true
-    keep_md: true
-    #smaller: true  ## only works without "---" slide breaks (use ##)
-    slide_level: 2
+    df_print: null
+    keep_md: yes
     logo: img/py_r_logo.png
+    slide_level: 2
+    theme: null
+    toc: yes
+  beamer_presentation: default
 ---
 
 
 
+## test
+
+[1] "/home/clemenszauchner/Documents/pydays2019"
 
 ## Contents
 
@@ -38,17 +40,22 @@ output:
 - Both tools have strengths and weaknesses (not part of this talk)
 - You are here to solve a problem, not to have a favourite algorithm or tool
   
-## Reality check {.columns-2}
-
-<img src="pydays2019_files/figure-html/unnamed-chunk-1-1.png" width="432" />
+## Reality check
 
 KD Nuggets Poll 2018: most of the people who use Python or R use both 
 
-\
-
-
+ <div class="flex_layout">
+  <div class="flex_column">
+  
+<img src="pydays2019_files/figure-html/unnamed-chunk-2-1.png" width="432" />
+  </div>
+  <div class="flex_column">
+  <br>
+  <br>
+  <br>
+  <br>
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4090 border=0>
+<table style="border-collapse:collapse;" class=table_9809 border=0>
 <col width="150">
 <col width="50">
 <col width="50">
@@ -82,9 +89,9 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
 </tr>
 </tbody>
 </table><!--/html_preserve-->
-
-
-
+  </div>
+</div> 
+<strong style="text-align:center;">Would it not make sense to aim for interoperability?</strong>
 
 ## What Python and R have in common
 
@@ -92,9 +99,6 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
 - both languages have rich interfaces to C / C++
 - most of under-the-hood coding is done in C / C++
 
-\
-
-<strong>Would it not make sense to aim for interoperability?</strong>
 
 ## Feather
 
@@ -129,7 +133,7 @@ A standarised, language-independent representation of in-memory columnar data
 ## Apache Arrow
 
 <!--html_preserve-->
-<table style="border-collapse:collapse;" class=table_4340 border=1>
+<table style="border-collapse:collapse;" class=table_3390 border=1>
 <caption id="footer" align="bottom">source: arrow.apache.org</caption>
 <thead>
 <tr style="border:1px solid transparent;">
@@ -178,6 +182,10 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 - R and Python variables are accessible from both environments
     + The objects  py and r provide this access
 
+## Type conversion
+
+![](pydays2019_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+
 ## Rstudio 1.2 / reticulated python {.smaller}
 ### The IDE: Rstudio 1.2
 - Automatic access to a python REPL when stepping into a python script
@@ -191,10 +199,6 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 - Automatic switch in the code history pane between Python and R
 - Sourcing full Python scripts
 - Display of matplotlib plots within the plots pane in RStudio and inline in the notebooks
-
-## Type conversion
-
-![](pydays2019_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ## R Notebooks
 <img src="img/Py_and_R_notebook.png" width="900" height="500"/>
@@ -215,7 +219,7 @@ ax.legend()
 plt.show()
 ```
 
-<img src="pydays2019_files/figure-html/unnamed-chunk-5-1.png" width="480" />
+<img src="pydays2019_files/figure-html/unnamed-chunk-6-1.png" width="480" />
 
 
 
@@ -230,7 +234,7 @@ ggplot(py$diamonds, aes(cut, carat)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](pydays2019_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](pydays2019_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 ## Is RStudio a good alternative as a Python IDE?
 

@@ -2,17 +2,16 @@
 title: "Surpassing the R vs Python dogma"
 author: "Dana Jomar, Clemens Zauchner"
 date: "May 2019"
-output: 
+output:
   ioslides_presentation:
-    toc: true
-    df_print: null
-    theme: null
     css: style.css
-    widescreen: true
-    keep_md: true
-    #smaller: true  ## only works without "---" slide breaks (use ##)
-    slide_level: 2
+    df_print: null
+    keep_md: yes
     logo: img/py_r_logo.png
+    slide_level: 2
+    theme: null
+    toc: yes
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -20,14 +19,19 @@ knitr::opts_chunk$set(echo = FALSE,
                       eval = TRUE,
                       results = 'asis')
 # make sure python3 is used
-python_configs <- reticulate::py_config()$python_versions
-python3 <- python_configs[grepl("3", python_configs)]
-if (length(python3) == 1)
-  Sys.setenv(RETICULATE_PYTHON = python3)
-knitr::knit_engines$set(python=reticulate::eng_python)
+library(reticulate)
+use_python("/usr/bin/python3")
+
+
+# knitr::knit_engines$set(python=reticulate::eng_python)
 library(tableHTML)
 ```
 
+## test
+
+```{r}
+print(getwd())
+```
 
 ## Contents
 
@@ -49,8 +53,13 @@ library(tableHTML)
 - Both tools have strengths and weaknesses (not part of this talk)
 - You are here to solve a problem, not to have a favourite algorithm or tool
   
-## Reality check {.columns-2}
+## Reality check
 
+KD Nuggets Poll 2018: most of the people who use Python or R use both 
+
+ <div class="flex_layout">
+  <div class="flex_column">
+  
 ```{python, fig.height = 4, fig.width = 4.5}
 from collections import Counter
 
@@ -75,12 +84,12 @@ for i in sets:
 
 plt.show()
 ```
-
-KD Nuggets Poll 2018: most of the people who use Python or R use both 
-
-\
-
-
+  </div>
+  <div class="flex_column">
+  <br>
+  <br>
+  <br>
+  <br>
 ```{r}
 # dplyr::tibble('R only' = c('27.6 %'),
 #            Python = c('28.7%'),
@@ -98,9 +107,9 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
                  css = list('text-align',
                             'right !important'))
 ```
-
-
-
+  </div>
+</div> 
+<strong style="text-align:center;">Would it not make sense to aim for interoperability?</strong>
 
 ## What Python and R have in common
 
@@ -108,9 +117,6 @@ KD Nuggets Poll 2018: most of the people who use Python or R use both
 - both languages have rich interfaces to C / C++
 - most of under-the-hood coding is done in C / C++
 
-\
-
-<strong>Would it not make sense to aim for interoperability?</strong>
 
 ## Feather
 
@@ -183,20 +189,6 @@ When to comes to the most fundamental tasks (data access, data manipulation, dat
 - R and Python variables are accessible from both environments
     + The objects  py and r provide this access
 
-## Rstudio 1.2 / reticulated python {.smaller}
-### The IDE: Rstudio 1.2
-- Automatic access to a python REPL when stepping into a python script
-  + read–eval–print loop 
-  + interactive language shell
-  + simple, interactive computer programming environment 
-- Line-by-line execution of Python code
-- Support for Python syntax highlighting
-- Autocompletion and Inline help for Python ...... HOOORAY!!!  
-- R notebooks with Python code chunks
-- Automatic switch in the code history pane between Python and R
-- Sourcing full Python scripts
-- Display of matplotlib plots within the plots pane in RStudio and inline in the notebooks
-
 ## Type conversion
 
 ```{r}
@@ -221,6 +213,20 @@ data.frame(R = r_type,
   tableHTML_to_image(zoom = 2)
 
 ```
+
+## Rstudio 1.2 / reticulated python {.smaller}
+### The IDE: Rstudio 1.2
+- Automatic access to a python REPL when stepping into a python script
+  + read–eval–print loop 
+  + interactive language shell
+  + simple, interactive computer programming environment 
+- Line-by-line execution of Python code
+- Support for Python syntax highlighting
+- Autocompletion and Inline help for Python ...... HOOORAY!!!  
+- R notebooks with Python code chunks
+- Automatic switch in the code history pane between Python and R
+- Sourcing full Python scripts
+- Display of matplotlib plots within the plots pane in RStudio and inline in the notebooks
 
 ## R Notebooks
 <img src="img/Py_and_R_notebook.png" width="900" height="500"/>

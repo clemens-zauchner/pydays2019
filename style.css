@@ -215,3 +215,13 @@ table, th, td {
 #conf_matrix {
   border: 0 px solid black !important;
 }
+
+
+/*flexbox 2 column layout*/
+.flex_layout {
+  display: flex;
+}
+
+.flex_column {
+  flex: 50%;
+}
